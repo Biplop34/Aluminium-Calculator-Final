@@ -1,0 +1,19 @@
+## local.properties template for Android Studio / Gradle builds
+##
+## This file must NOT be committed with a hardcoded computer-specific path.
+## Android Studio normally auto-creates local.properties when you open the project.
+## If Android Studio shows "SDK location not found", create a 'local.properties'
+## file in this project root directory and set sdk.dir to your local Android SDK path.
+##
+## Common SDK locations:
+##
+## Windows (replace <Username> with your Windows user name):
+## sdk.dir=C\:\\Users\\<Username>\\AppData\\Local\\Android\\Sdk
+##
+## macOS:
+## sdk.dir=/Users/<Username>/Library/Android/sdk
+##
+## Linux:
+## sdk.dir=/home/<Username>/Android/Sdk
+##
+## Alternatively, set the ANDROID_HOME or ANDROID_SDK_ROOT environment variable on your computer.

@@ -1,0 +1,948 @@
+/* Prevent all text selection, copying callouts, and highlighting across the app */
+*, *::before, *::after {
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+  -webkit-touch-callout: none !important;
+}
+
+/* Allow selection and cursor movement only in input fields and textareas */
+input, textarea, [contenteditable="true"] {
+  -webkit-user-select: text !important;
+  -moz-user-select: text !important;
+  -ms-user-select: text !important;
+  user-select: text !important;
+  -webkit-touch-callout: default !important;
+}
+
+/* Pure Clean Light Mode Styles (Default) */
+:root {
+  color-scheme: light;
+}
+
+html, body {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+/* Smooth Scrolling & Polish */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Clean Custom Scrollbar for Light Mode */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* ========================================================
+   GOOGLE CALCULATOR (MATERIAL YOU) BASE-8 STYLES
+   ======================================================== */
+.google-calc {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+  max-width: 440px;
+  margin: 0 auto;
+  background-color: #f8fafd;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  font-family: 'Google Sans', Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  user-select: none;
+}
+
+.google-calc-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 8px 16px 0 16px;
+  background: transparent;
+  flex-shrink: 0;
+  min-height: 40px;
+}
+
+.google-calc-icon-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  color: #444746;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+  outline: none;
+}
+.google-calc-icon-btn:hover {
+  background-color: #e9eef6;
+}
+.google-calc-icon-btn:active {
+  background-color: #d3e3fd;
+}
+
+/* History Drawer / Dropdown */
+.google-calc-history {
+  position: absolute;
+  top: 48px;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  max-height: 55vh;
+  overflow-y: auto;
+  background: #ffffff;
+  border-bottom: 2px solid #e1e3e8;
+  padding: 12px 18px 16px 18px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+  animation: fadeIn 0.15s ease;
+}
+.google-calc-history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 700;
+  color: #1f1f1f;
+  margin-bottom: 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e2e8f0;
+}
+.google-calc-history-item {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 12px;
+  border-radius: 12px;
+  margin-bottom: 6px;
+  background: #f8fafd;
+  cursor: pointer;
+  border: 1px solid #edf2f7;
+  transition: background-color 0.15s ease;
+}
+.google-calc-history-item:hover {
+  background: #eef4fe;
+}
+.google-calc-history-item .expr {
+  font-size: 12px;
+  color: #5f6368;
+}
+.google-calc-history-item .res {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0d9488;
+  text-align: right;
+}
+
+.google-calc-screen {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 12px 24px 16px 24px;
+  overflow-y: auto;
+  min-height: 140px;
+}
+
+.google-calc-expr-line {
+  font-size: 26px;
+  line-height: 1.3;
+  color: #475569;
+  text-align: right;
+  min-height: 34px;
+  word-break: break-all;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: baseline;
+  user-select: text !important;
+  cursor: pointer;
+}
+
+.google-calc-result-line {
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 1.15;
+  color: #0f172a;
+  text-align: right;
+  margin-top: 4px;
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-end;
+  word-break: break-all;
+  user-select: text !important;
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+
+.google-calc-keypad {
+  margin-top: auto;
+  position: relative;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  padding: 14px 18px 24px 18px;
+  background: transparent;
+}
+
+.google-key {
+  height: 64px;
+  border-radius: 32px;
+  font-size: 22px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.08s ease, background-color 0.12s ease;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+.google-key:active {
+  transform: scale(0.93);
+}
+
+.google-key-num {
+  background-color: #f0f4f9;
+  color: #1f1f1f;
+}
+.google-key-num:hover {
+  background-color: #e2e8f0;
+}
+.google-key-num:active {
+  background-color: #cbd5e1;
+}
+
+.google-key-op {
+  background-color: #c2e7ff;
+  color: #001d35;
+}
+.google-key-op:hover {
+  background-color: #b3defa;
+}
+.google-key-op:active {
+  background-color: #9cd3fa;
+}
+
+.google-key-eq,
+.google-key-equal {
+  background-color: #00639b;
+  color: #ffffff;
+}
+.google-key-eq:hover,
+.google-key-equal:hover {
+  background-color: #005383;
+}
+.google-key-eq:active,
+.google-key-equal:active {
+  background-color: #00436b;
+}
+
+.google-key-ac, .google-key-back {
+  background-color: #dfe3e7;
+  color: #444746;
+}
+.google-key-ac:hover, .google-key-back:hover {
+  background-color: #d3d8dd;
+}
+.google-key-ac:active, .google-key-back:active {
+  background-color: #c5cbd1;
+}
+
+.google-key-ac {
+  grid-column: span 2 !important;
+  border-radius: 32px !important;
+}
+
+.google-key-zero {
+  grid-column: span 2 !important;
+  border-radius: 32px !important;
+}
+
+/* ========================================================
+   COMPREHENSIVE PROFESSIONAL DARK MODE PALETTE
+   Harmonious Slate Theme with High Contrast & Vivid Accents
+   ======================================================== */
+html.dark {
+  color-scheme: dark;
+}
+
+html.dark,
+html.dark body {
+  background-color: #0f172a !important;
+  color: #f8fafc !important;
+}
+
+/* Base Surfaces, Cards, & Panels */
+html.dark .bg-white,
+html.dark .bg-slate-50,
+html.dark .bg-slate-50\/20,
+html.dark .bg-slate-50\/30,
+html.dark .bg-slate-50\/50,
+html.dark .bg-slate-100,
+html.dark .bg-slate-100\/50,
+html.dark .bg-slate-100\/60,
+html.dark .bg-slate-100\/70,
+html.dark .bg-slate-100\/80,
+html.dark .bg-slate-100\/90,
+html.dark .bg-slate-200,
+html.dark .bg-slate-200\/50,
+html.dark .bg-slate-200\/60,
+html.dark .bg-slate-300,
+html.dark .smart-scanner-toggle-btn,
+html.dark .customer-details-toggle-btn,
+html.dark [class*="bg-slate-100\/"] {
+  background-color: #1e293b !important;
+  color: #f8fafc !important;
+  border-color: #334155 !important;
+}
+
+html.dark .smart-scanner-toggle-btn,
+html.dark .customer-details-toggle-btn {
+  background-color: #1e293b !important;
+  color: #f8fafc !important;
+}
+
+html.dark .smart-scanner-toggle-btn:hover,
+html.dark .customer-details-toggle-btn:hover {
+  background-color: #273549 !important;
+}
+
+html.dark .smart-scanner-toggle-btn span,
+html.dark .customer-details-toggle-btn span {
+  color: #f8fafc !important;
+}
+
+html.dark .smart-scanner-toggle-btn svg,
+html.dark .customer-details-toggle-btn svg {
+  color: #2dd4bf !important;
+}
+
+html.dark .smart-scanner-toggle-btn .bg-teal-100 {
+  background-color: rgba(13, 148, 136, 0.25) !important;
+  color: #2dd4bf !important;
+}
+
+/* Deep Background Surfaces (Headers, Footers, Page Backgrounds) */
+html.dark header,
+html.dark .bg-slate-900 {
+  background-color: #0f172a !important;
+  color: #f8fafc !important;
+  border-color: #1e293b !important;
+}
+
+/* Typography Hierarchy in Dark Mode */
+html.dark .text-slate-900,
+html.dark .text-slate-800,
+html.dark .text-black {
+  color: #f8fafc !important;
+}
+
+html.dark .text-slate-700,
+html.dark .text-slate-600 {
+  color: #cbd5e1 !important;
+}
+
+html.dark .text-slate-500,
+html.dark .text-slate-400,
+html.dark .text-gray-400 {
+  color: #94a3b8 !important;
+}
+
+html.dark .text-slate-300 {
+  color: #cbd5e1 !important;
+}
+
+/* Borders in Dark Mode */
+html.dark .border-slate-100,
+html.dark .border-slate-200,
+html.dark .border-slate-300,
+html.dark .border-slate-200\/60,
+html.dark .border-slate-200\/70 {
+  border-color: #334155 !important;
+}
+
+html.dark .divide-slate-100 > * + *,
+html.dark .divide-slate-200 > * + * {
+  border-color: #334155 !important;
+}
+
+/* Inputs, Textareas, and Dropdown Selects */
+html.dark input,
+html.dark textarea,
+html.dark select {
+  background-color: #0f172a !important;
+  color: #f8fafc !important;
+  border-color: #334155 !important;
+}
+
+html.dark input::placeholder,
+html.dark textarea::placeholder {
+  color: #64748b !important;
+}
+
+html.dark input:focus,
+html.dark textarea:focus,
+html.dark select:focus {
+  border-color: #14b8a6 !important;
+  background-color: #0f172a !important;
+  outline: none !important;
+  box-shadow: 0 0 0 2px rgba(20, 184, 166, 0.25) !important;
+}
+
+/* Tables in Dark Mode */
+html.dark table {
+  border-color: #334155 !important;
+}
+html.dark th {
+  background-color: #0f172a !important;
+  color: #94a3b8 !important;
+  border-color: #334155 !important;
+}
+html.dark td {
+  color: #f8fafc !important;
+  border-color: #334155 !important;
+}
+html.dark tr:hover td {
+  background-color: #273549 !important;
+}
+
+/* Modals & Dialogs in Dark Mode */
+html.dark .fixed.inset-0.bg-black\/50,
+html.dark .fixed.inset-0.bg-black\/60,
+html.dark .fixed.inset-0.bg-black\/70 {
+  background-color: rgba(0, 0, 0, 0.75) !important;
+}
+
+/* Accent Color Schemes - Professional Tinted Dark Mode Cards */
+
+/* 1. Teal Theme (Primary Brand / Measurement Accents) */
+html.dark .bg-teal-50,
+html.dark .bg-teal-100,
+html.dark .bg-teal-50\/60,
+html.dark .bg-teal-100\/70 {
+  background-color: rgba(13, 148, 136, 0.2) !important;
+  color: #2dd4bf !important;
+  border-color: rgba(45, 212, 191, 0.35) !important;
+}
+html.dark .text-teal-600,
+html.dark .text-teal-700,
+html.dark .text-teal-800 {
+  color: #2dd4bf !important;
+}
+html.dark .border-teal-100,
+html.dark .border-teal-200,
+html.dark .border-teal-200\/60,
+html.dark .border-teal-200\/70 {
+  border-color: rgba(45, 212, 191, 0.35) !important;
+}
+
+/* 2. Amber Theme (Fanlight & Warning Highlights) */
+html.dark .bg-amber-50,
+html.dark .bg-amber-100,
+html.dark .bg-amber-50\/60,
+html.dark .bg-amber-50\/70 {
+  background-color: rgba(217, 119, 6, 0.2) !important;
+  color: #fbbf24 !important;
+  border-color: rgba(251, 191, 36, 0.35) !important;
+}
+html.dark .text-amber-600,
+html.dark .text-amber-700,
+html.dark .text-amber-800 {
+  color: #fbbf24 !important;
+}
+html.dark .border-amber-200,
+html.dark .border-amber-300,
+html.dark .border-amber-200\/70 {
+  border-color: rgba(251, 191, 36, 0.35) !important;
+}
+
+/* 3. Emerald Theme (All In One & Success Highlights) */
+html.dark .bg-emerald-50,
+html.dark .bg-emerald-100,
+html.dark .bg-emerald-200 {
+  background-color: rgba(16, 185, 129, 0.2) !important;
+  color: #34d399 !important;
+  border-color: rgba(52, 211, 153, 0.35) !important;
+}
+html.dark .text-emerald-600,
+html.dark .text-emerald-700 {
+  color: #34d399 !important;
+}
+html.dark .border-emerald-200,
+html.dark .border-emerald-300 {
+  border-color: rgba(52, 211, 153, 0.35) !important;
+}
+
+/* 4. Indigo Theme (Save All Individually / Secondary Actions) */
+html.dark .bg-indigo-50,
+html.dark .bg-indigo-100 {
+  background-color: rgba(99, 102, 241, 0.2) !important;
+  color: #818cf8 !important;
+  border-color: rgba(129, 140, 248, 0.35) !important;
+}
+html.dark .text-indigo-600,
+html.dark .text-indigo-700 {
+  color: #818cf8 !important;
+}
+html.dark .border-indigo-200,
+html.dark .border-indigo-300 {
+  border-color: rgba(129, 140, 248, 0.35) !important;
+}
+
+/* 5. Red / Danger Theme */
+html.dark .bg-red-50,
+html.dark .bg-red-100 {
+  background-color: rgba(239, 68, 68, 0.2) !important;
+  color: #f87171 !important;
+  border-color: rgba(248, 113, 113, 0.35) !important;
+}
+html.dark .text-red-500,
+html.dark .text-red-600,
+html.dark .text-red-700 {
+  color: #f87171 !important;
+}
+html.dark .border-red-100,
+html.dark .border-red-200 {
+  border-color: rgba(248, 113, 113, 0.35) !important;
+}
+
+/* Hover States in Dark Mode */
+html.dark .hover\:bg-slate-100:hover,
+html.dark .hover\:bg-slate-100\/70:hover,
+html.dark .hover\:bg-slate-100\/80:hover,
+html.dark .hover\:bg-slate-100\/90:hover,
+html.dark .hover\:bg-slate-200:hover,
+html.dark .hover\:bg-teal-50:hover,
+html.dark [class*="hover:bg-slate-100"]:hover {
+  background-color: #273549 !important;
+}
+
+@keyframes slideDownToast {
+  0% { transform: translate(-50%, -100%); opacity: 0; }
+  100% { transform: translate(-50%, 0); opacity: 1; }
+}
+.animate-toast-popup {
+  animation: slideDownToast 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Shadows in Dark Mode */
+html.dark .shadow-sm,
+html.dark .shadow-md,
+html.dark .shadow-lg,
+html.dark .shadow-2xl,
+html.dark .shadow-inner,
+html.dark .shadow-xs,
+html.dark .shadow-2xs {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45) !important;
+}
+
+/* Base-8 Google Calc in Dark Mode */
+html.dark .google-calc {
+  background-color: #0f172a !important;
+}
+html.dark .google-calc-screen {
+  background-color: #0f172a !important;
+}
+html.dark .google-calc-keypad {
+  background-color: #0f172a !important;
+}
+html.dark .google-key-num {
+  background-color: #1e293b !important;
+  color: #f8fafc !important;
+}
+html.dark .google-key-num:hover {
+  background-color: #334155 !important;
+}
+html.dark .google-key-num:active {
+  background-color: #475569 !important;
+}
+html.dark .google-key-op {
+  background-color: #0369a1 !important;
+  color: #f0f9ff !important;
+}
+html.dark .google-key-op:hover {
+  background-color: #0284c7 !important;
+}
+html.dark .google-key-op:active {
+  background-color: #075985 !important;
+}
+html.dark .google-key-eq,
+html.dark .google-key-equal {
+  background-color: #0d9488 !important;
+  color: #ffffff !important;
+}
+html.dark .google-key-eq:hover,
+html.dark .google-key-equal:hover {
+  background-color: #0f766e !important;
+}
+html.dark .google-key-ac,
+html.dark .google-key-back {
+  background-color: #334155 !important;
+  color: #f8fafc !important;
+}
+html.dark .google-key-ac:hover,
+html.dark .google-key-back:hover {
+  background-color: #475569 !important;
+}
+html.dark .google-calc-result-line {
+  color: #38bdf8 !important;
+}
+html.dark .google-calc-expr-line {
+  color: #94a3b8 !important;
+}
+html.dark .google-calc-history {
+  background-color: #1e293b !important;
+  border-color: #334155 !important;
+}
+html.dark .google-calc-history-item {
+  background-color: #0f172a !important;
+  border-color: #334155 !important;
+}
+html.dark .google-calc-history-header {
+  color: #f8fafc !important;
+  border-color: #334155 !important;
+}
+html.dark .google-calc-icon-btn {
+  color: #cbd5e1 !important;
+}
+html.dark .google-calc-icon-btn:hover {
+  background-color: #334155 !important;
+}
+
+/* ========================================================
+   UNIVERSAL INLINE STYLE OVERRIDES (HEX + RGB COMPATIBLE)
+   Resolves all white backgrounds and low contrast in React
+   WebViews while preserving offscreen canvas generation!
+   ======================================================== */
+html.dark *:not([style*="-9999px"]):not([style*="-10000px"]):not([style*="-9999px"] *):not([style*="-10000px"] *)[style*="#ffffff"],
+html.dark *:not([style*="-9999px"]):not([style*="-10000px"]):not([style*="-9999px"] *):not([style*="-10000px"] *)[style*="255, 255, 255"],
+html.dark *:not([style*="-9999px"]):not([style*="-10000px"]):not([style*="-9999px"] *):not([style*="-10000px"] *)[style*="#f8fafc"],
+html.dark *:not([style*="-9999px"]):not([style*="-10000px"]):not([style*="-9999px"] *):not([style*="-10000px"] *)[style*="248, 250, 252"],
+html.dark *:not([style*="-9999px"]):not([style*="-10000px"]):not([style*="-9999px"] *):not([style*="-10000px"] *)[style*="#f1f5f9"],
+html.dark *:not([style*="-9999px"]):not([style*="-10000px"]):not([style*="-9999px"] *):not([style*="-10000px"] *)[style*="241, 245, 249"],
+html.dark *:not([style*="-9999px"]):not([style*="-10000px"]):not([style*="-9999px"] *):not([style*="-10000px"] *)[style*="#edf2f7"],
+html.dark *:not([style*="-9999px"]):not([style*="-10000px"]):not([style*="-9999px"] *):not([style*="-10000px"] *)[style*="237, 242, 247"] {
+  background-color: #1e293b !important;
+  color: #f8fafc !important;
+  border-color: #334155 !important;
+}
+
+/* Light Teal Inline Style Override */
+html.dark *:not([style*="-9999px"]):not([style*="-10000px"]):not([style*="-9999px"] *):not([style*="-10000px"] *)[style*="#f0fdfa"],
+html.dark *:not([style*="-9999px"]):not([style*="-10000px"]):not([style*="-9999px"] *):not([style*="-10000px"] *)[style*="240, 253, 250"],
+html.dark *:not([style*="-9999px"]):not([style*="-10000px"]):not([style*="-9999px"] *):not([style*="-10000px"] *)[style*="#ccfbf1"],
+html.dark *:not([style*="-9999px"]):not([style*="-10000px"]):not([style*="-9999px"] *):not([style*="-10000px"] *)[style*="204, 251, 241"] {
+  background-color: rgba(13, 148, 136, 0.22) !important;
+  border-color: rgba(45, 212, 191, 0.35) !important;
+  color: #2dd4bf !important;
+}
+
+/* Light Amber Inline Style Override */
+html.dark *:not([style*="-9999px"]):not([style*="-10000px"]):not([style*="-9999px"] *):not([style*="-10000px"] *)[style*="#fffbeb"],
+html.dark *:not([style*="-9999px"]):not([style*="-10000px"]):not([style*="-9999px"] *):not([style*="-10000px"] *)[style*="255, 251, 235"],
+html.dark *:not([style*="-9999px"]):not([style*="-10000px"]):not([style*="-9999px"] *):not([style*="-10000px"] *)[style*="#fef3c7"],
+html.dark *:not([style*="-9999px"]):not([style*="-10000px"]):not([style*="-9999px"] *):not([style*="-10000px"] *)[style*="254, 243, 199"] {
+  background-color: rgba(217, 119, 6, 0.22) !important;
+  border-color: rgba(251, 191, 36, 0.35) !important;
+  color: #fbbf24 !important;
+}
+
+/* Border Overrides for Inline Styles */
+html.dark *:not([style*="-9999px"]):not([style*="-10000px"]):not([style*="-9999px"] *):not([style*="-10000px"] *)[style*="#e2e8f0"],
+html.dark *:not([style*="-9999px"]):not([style*="-10000px"]):not([style*="-9999px"] *):not([style*="-10000px"] *)[style*="226, 232, 240"],
+html.dark *:not([style*="-9999px"]):not([style*="-10000px"]):not([style*="-9999px"] *):not([style*="-10000px"] *)[style*="#cbd5e1"],
+html.dark *:not([style*="-9999px"]):not([style*="-10000px"]):not([style*="-9999px"] *):not([style*="-10000px"] *)[style*="203, 213, 225"] {
+  border-color: #334155 !important;
+}
+
+/* Text Overrides for Dark Mode High Contrast */
+html.dark *:not([style*="-9999px"]):not([style*="-10000px"]):not([style*="-9999px"] *):not([style*="-10000px"] *)[style*="#0f172a"],
+html.dark *:not([style*="-9999px"]):not([style*="-10000px"]):not([style*="-9999px"] *):not([style*="-10000px"] *)[style*="15, 23, 42"],
+html.dark *:not([style*="-9999px"]):not([style*="-10000px"]):not([style*="-9999px"] *):not([style*="-10000px"] *)[style*="#1f1f1f"],
+html.dark *:not([style*="-9999px"]):not([style*="-10000px"]):not([style*="-9999px"] *):not([style*="-10000px"] *)[style*="31, 31, 31"] {
+  color: #f8fafc !important;
+}
+
+html.dark *:not([style*="-9999px"]):not([style*="-10000px"]):not([style*="-9999px"] *):not([style*="-10000px"] *)[style*="#334155"],
+html.dark *:not([style*="-9999px"]):not([style*="-10000px"]):not([style*="-9999px"] *):not([style*="-10000px"] *)[style*="51, 65, 85"],
+html.dark *:not([style*="-9999px"]):not([style*="-10000px"]):not([style*="-9999px"] *):not([style*="-10000px"] *)[style*="#475569"],
+html.dark *:not([style*="-9999px"]):not([style*="-10000px"]):not([style*="-9999px"] *):not([style*="-10000px"] *)[style*="71, 85, 105"] {
+  color: #cbd5e1 !important;
+}
+
+html.dark *:not([style*="-9999px"]):not([style*="-10000px"]):not([style*="-9999px"] *):not([style*="-10000px"] *)[style*="#64748b"],
+html.dark *:not([style*="-9999px"]):not([style*="-10000px"]):not([style*="-9999px"] *):not([style*="-10000px"] *)[style*="100, 116, 139"],
+html.dark *:not([style*="-9999px"]):not([style*="-10000px"]):not([style*="-9999px"] *):not([style*="-10000px"] *)[style*="#94a3b8"],
+html.dark *:not([style*="-9999px"]):not([style*="-10000px"]):not([style*="-9999px"] *):not([style*="-10000px"] *)[style*="148, 163, 184"] {
+  color: #94a3b8 !important;
+}
+
+html.dark *:not([style*="-9999px"]):not([style*="-10000px"]):not([style*="-9999px"] *):not([style*="-10000px"] *)[style*="#115e59"],
+html.dark *:not([style*="-9999px"]):not([style*="-10000px"]):not([style*="-9999px"] *):not([style*="-10000px"] *)[style*="17, 94, 89"],
+html.dark *:not([style*="-9999px"]):not([style*="-10000px"]):not([style*="-9999px"] *):not([style*="-10000px"] *)[style*="#134e4a"],
+html.dark *:not([style*="-9999px"]):not([style*="-10000px"]):not([style*="-9999px"] *):not([style*="-10000px"] *)[style*="19, 78, 74"],
+html.dark *:not([style*="-9999px"]):not([style*="-10000px"]):not([style*="-9999px"] *):not([style*="-10000px"] *)[style*="#0f766e"],
+html.dark *:not([style*="-9999px"]):not([style*="-10000px"]):not([style*="-9999px"] *):not([style*="-10000px"] *)[style*="15, 118, 110"],
+html.dark *:not([style*="-9999px"]):not([style*="-10000px"]):not([style*="-9999px"] *):not([style*="-10000px"] *)[style*="#0d9488"],
+html.dark *:not([style*="-9999px"]):not([style*="-10000px"]):not([style*="-9999px"] *):not([style*="-10000px"] *)[style*="13, 148, 136"] {
+  color: #2dd4bf !important;
+}
+
+html.dark *:not([style*="-9999px"]):not([style*="-10000px"]):not([style*="-9999px"] *):not([style*="-10000px"] *)[style*="#78350f"],
+html.dark *:not([style*="-9999px"]):not([style*="-10000px"]):not([style*="-9999px"] *):not([style*="-10000px"] *)[style*="120, 53, 15"],
+html.dark *:not([style*="-9999px"]):not([style*="-10000px"]):not([style*="-9999px"] *):not([style*="-10000px"] *)[style*="#b45309"],
+html.dark *:not([style*="-9999px"]):not([style*="-10000px"]):not([style*="-9999px"] *):not([style*="-10000px"] *)[style*="180, 83, 9"] {
+  color: #fbbf24 !important;
+}
+
+/* ========================================================
+   CRITICAL EXEMPTION: PRINTABLE REPORT FOR SAVED GALLERY IMAGE
+   When generating downloadable images, the canvas MUST
+   remain crisp clean white paper with pure dark text & borders!
+   ======================================================== */
+html.dark [style*="-9999px"],
+html.dark [style*="-9999px"] *,
+html.dark [style*="-10000px"],
+html.dark [style*="-10000px"] * {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  border-color: #000000 !important;
+  box-shadow: none !important;
+}
+
+html.dark [style*="-9999px"] .bg-slate-100,
+html.dark [style*="-10000px"] .bg-slate-100 {
+  background-color: #f1f5f9 !important;
+}
+html.dark [style*="-9999px"] .bg-slate-50\/50,
+html.dark [style*="-10000px"] .bg-slate-50\/50 {
+  background-color: #f8fafc !important;
+}
+html.dark [style*="-9999px"] table,
+html.dark [style*="-9999px"] th,
+html.dark [style*="-9999px"] td,
+html.dark [style*="-9999px"] tr,
+html.dark [style*="-10000px"] table,
+html.dark [style*="-10000px"] th,
+html.dark [style*="-10000px"] td,
+html.dark [style*="-10000px"] tr {
+  color: #000000 !important;
+  border-color: #000000 !important;
+  background-color: transparent !important;
+}
+html.dark [style*="-9999px"] th,
+html.dark [style*="-10000px"] th {
+  background-color: #f1f5f9 !important;
+  color: #000000 !important;
+}
+html.dark [style*="-9999px"] .text-slate-900,
+html.dark [style*="-9999px"] .text-black,
+html.dark [style*="-10000px"] .text-slate-900,
+html.dark [style*="-10000px"] .text-black {
+  color: #000000 !important;
+}
+html.dark [style*="-9999px"] .text-teal-600,
+html.dark [style*="-10000px"] .text-teal-600 {
+  color: #0d9488 !important;
+}
+
+/* ========================================================
+   CUSTOM APP NAVIGATION DRAWER (BULLETPROOF NON-PURGED CSS)
+   ======================================================== */
+.app-drawer-overlay {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  z-index: 99999 !important;
+  display: flex !important;
+  transition: opacity 0.25s ease, visibility 0.25s ease !important;
+}
+
+.app-drawer-overlay.closed {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+.app-drawer-overlay.open {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+}
+
+.app-drawer-backdrop {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  background-color: rgba(0, 0, 0, 0.65) !important;
+  cursor: pointer !important;
+}
+
+.app-drawer-panel {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  bottom: 0 !important;
+  width: 290px !important;
+  max-width: 85vw !important;
+  background-color: #ffffff !important;
+  box-shadow: 6px 0 30px rgba(0, 0, 0, 0.3) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  z-index: 100000 !important;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  will-change: transform !important;
+}
+
+.app-drawer-overlay.closed .app-drawer-panel {
+  transform: translateX(-100%) !important;
+}
+
+.app-drawer-overlay.open .app-drawer-panel {
+  transform: translateX(0) !important;
+}
+
+html.dark .app-drawer-panel {
+  background-color: #0f172a !important;
+  color: #f8fafc !important;
+  border-right: 1px solid #1e293b !important;
+}
+
+html.dark .app-drawer-header {
+  background-color: #1e293b !important;
+  border-bottom: 1px solid #334155 !important;
+}
+
+html.dark .app-drawer-footer {
+  background-color: #1e293b !important;
+  border-top: 1px solid #334155 !important;
+}
+
+html.dark .app-drawer-item {
+  color: #cbd5e1 !important;
+}
+
+html.dark .app-drawer-item:hover,
+html.dark .app-drawer-item:active {
+  background-color: #1e293b !important;
+}
+
+html.dark .app-drawer-item.active {
+  background-color: #0d9488 !important;
+  color: #ffffff !important;
+}
+
+/* Explicit HEX fallbacks for crisp borders and soft pastels on all Android WebViews */
+:root {
+  --color-slate-50: #f8fafc;
+  --color-slate-100: #f1f5f9;
+  --color-slate-200: #e2e8f0;
+  --color-slate-300: #cbd5e1;
+  --color-slate-400: #94a3b8;
+  --color-slate-500: #64748b;
+  --color-slate-600: #475569;
+  --color-slate-700: #334155;
+  --color-slate-800: #1e293b;
+  --color-slate-900: #0f172a;
+  --color-teal-50: #f0fdfa;
+  --color-teal-100: #ccfbf1;
+  --color-teal-200: #99f6e4;
+  --color-teal-600: #0d9488;
+  --color-teal-700: #0f766e;
+  --color-teal-800: #115e59;
+  --color-teal-900: #134e4a;
+  --color-amber-50: #fffbeb;
+  --color-amber-100: #fef3c7;
+  --color-amber-200: #fde68a;
+  --color-amber-700: #b45309;
+  --color-amber-800: #92400e;
+  --color-amber-900: #78350f;
+}
+
+html:not(.dark) .border-slate-200, html:not(.dark) .border-slate-200\/60 {
+  border-color: #e2e8f0 !important;
+}
+html:not(.dark) .border-slate-100 {
+  border-color: #f1f5f9 !important;
+}
+html:not(.dark) .border-teal-200, html:not(.dark) .border-teal-200\/70, html:not(.dark) .border-teal-200\/80 {
+  border-color: #99f6e4 !important;
+}
+html:not(.dark) .border-amber-200, html:not(.dark) .border-amber-200\/70 {
+  border-color: #fde68a !important;
+}
+html:not(.dark) .bg-slate-50, html:not(.dark) .bg-slate-50\/40, html:not(.dark) .bg-slate-50\/70, html:not(.dark) .bg-slate-50\/30 {
+  background-color: #f8fafc !important;
+}
+html:not(.dark) .bg-teal-50, html:not(.dark) .bg-teal-50\/60, html:not(.dark) .bg-teal-50\/70 {
+  background-color: #f0fdfa !important;
+}
+html:not(.dark) .bg-amber-50, html:not(.dark) .bg-amber-50\/70 {
+  background-color: #fffbeb !important;
+}
+
+.text-\[9px\] {
+  font-size: 9px !important;
+  line-height: 1.25 !important;
+}
+
+.text-\[10px\] {
+  font-size: 10px !important;
+  line-height: 1.3 !important;
+}
+
+.shadow-2xs {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04) !important;
+}
+
+.shadow-xs {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06) !important;
+}
+
+/* Always force pure light mode for printable report generators */
+div[style*="-9999px"],
+div[style*="-9999px"] *,
+div[style*="-10000px"],
+div[style*="-10000px"] *,
+.fixed.-left-\[10000px\],
+.fixed.-left-\[10000px\] * {
+  color-scheme: light !important;
+}
+div[style*="-9999px"] .bg-white,
+div[style*="-10000px"] .bg-white,
+.fixed.-left-\[10000px\] .bg-white {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+div[style*="-9999px"] table,
+div[style*="-10000px"] table,
+.fixed.-left-\[10000px\] table {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+/* Display mixed-case app copy in title case. Existing uppercase copy stays uppercase. */
+body :where(*:not(input):not(textarea):not(code):not(pre)) {
+  text-transform: capitalize !important;
+}
