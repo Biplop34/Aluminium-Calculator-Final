@@ -1,24 +1,93 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Aluminum Calculator helps organize fabrication measurements, calculate frame and glass dimensions, manage jobs, and optionally back up data to Google Drive.">
-<title>Aluminum Calculator</title>
-<style>
-:root{color-scheme:dark;--bg:#0b1220;--panel:#142139;--text:#eef4ff;--muted:#b4c1d5;--accent:#82b7ff;--line:#2a3b57}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 15% 0%,#1d3b64 0,transparent 43%),var(--bg);color:var(--text);font:16px/1.7 system-ui,Segoe UI,Arial,sans-serif}
-.wrap{width:min(1080px,92%);margin:auto}.nav{display:flex;justify-content:space-between;align-items:center;padding:23px 0;border-bottom:1px solid var(--line)}.brand{font-weight:800}.nav a,footer a{color:var(--muted);text-decoration:none;margin-left:16px}.nav a:hover,footer a:hover{color:var(--accent)}
-.hero{padding:82px 0 60px;max-width:790px}.eyebrow{color:var(--accent);font-size:12px;font-weight:800;letter-spacing:2px;text-transform:uppercase}.hero h1{font-size:clamp(40px,7vw,68px);line-height:1.08;margin:14px 0}.hero p{font-size:19px;color:var(--muted)}.tag{display:inline-block;border:1px solid #45658e;border-radius:30px;padding:6px 13px;color:#d2e4ff;font-size:13px;margin-top:12px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(225px,1fr));gap:16px;padding-bottom:50px}.card{background:linear-gradient(145deg,#1a2b46,var(--panel));border:1px solid var(--line);border-radius:17px;padding:23px}.card h2{font-size:19px;margin:0 0 8px}.card p,.section p{color:var(--muted);margin:0}.section{max-width:820px;padding:5px 0 55px}.section h2{font-size:27px}.btn{display:inline-block;background:var(--accent);color:#071426;text-decoration:none;font-weight:800;padding:11px 17px;border-radius:9px;margin-top:18px}
-footer{border-top:1px solid var(--line);padding:23px 0 35px;color:var(--muted);font-size:14px}
-</style></head><body>
-<header class="wrap nav"><div class="brand">◈ Aluminum Calculator</div><nav><a href="#features">Features</a><a href="privacy-policy.html">Privacy</a><a href="terms.html">Terms</a></nav></header>
-<main class="wrap"><section class="hero"><div class="eyebrow">Measurement & fabrication companion</div><h1>Plan aluminum work with clarity.</h1>
-<p>Aluminum Calculator is an Android application designed to help users calculate aluminum frame, shutter, and glass dimensions, organize customer jobs, and back up app data to their own Google Drive account when they choose.</p><span class="tag">Android application · Measurement tools · Optional Google Drive backup</span></section>
-<section id="features" class="grid">
-<article class="card"><h2>Dimension calculations</h2><p>Calculate dimensions for aluminum frame sections, shutter sections, and glass using measurements entered by the user.</p></article>
-<article class="card"><h2>Customer job records</h2><p>Keep customer details, measurements, and calculation results organized in saved jobs on the device.</p></article>
-<article class="card"><h2>Measurement utilities</h2><p>Use measurement and unit-conversion tools to support common fabrication calculations.</p></article>
-<article class="card"><h2>Google Drive backup</h2><p>When configured, back up and restore app data using the Google account selected and authorized by the user.</p></article>
-</section>
-<section class="section"><h2>Your data, your choice</h2><p>Job details and calculation history are stored locally on the device. If Google Drive backup is enabled, the app can transfer its backup to the private app data area of the Google account you authorize. Backup is optional; local app features can be used without connecting an account.</p><a class="btn" href="https://github.com/Biplop34/Aluminium-Calculator-Final" target="_blank" rel="noopener">View project on GitHub</a></section></main>
-<footer class="wrap">© 2026 Aluminum Calculator · <a href="privacy-policy.html">Privacy Policy</a> · <a href="terms.html">Terms of Service</a> · <a href="https://github.com/Biplop34/Aluminium-Calculator-Final/issues">Support</a></footer>
-</body></html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f8f7">
+  <meta name="description" content="Calculate aluminium fabrication dimensions, track customer jobs, and prepare clear billing reports with Aluminum Calculator.">
+  <title>Aluminum Calculator · Fabrication, billing and job records</title>
+  <style>
+:root{color-scheme:light;--ink:#14252b;--muted:#5e7076;--paper:#f4f8f7;--surface:#fff;--line:#dce7e4;--teal:#128879;--teal-dark:#0d675d;--mint:#dff5ef;--navy:#12252d;--gold:#e9b85a;--shadow:0 22px 60px rgba(22,55,57,.10)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:92px}body{margin:0;background:radial-gradient(ellipse at 8% 0%,rgba(18,136,121,.10),transparent 34%),var(--paper);color:var(--ink);font:16px/1.7 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif}a{color:var(--teal-dark)}a:hover{color:var(--teal)}a:focus-visible{outline:3px solid var(--gold);outline-offset:4px}.container{width:min(1120px,calc(100% - 40px));margin-inline:auto}.skip-link{position:absolute;left:-9999px;top:10px;background:var(--navy);color:#fff;padding:10px 14px;border-radius:10px;z-index:10}.skip-link:focus{left:12px}.site-header{position:sticky;top:0;z-index:5;background:rgba(244,248,247,.88);backdrop-filter:blur(16px);border-bottom:1px solid rgba(210,225,221,.8)}.nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:inline-flex;align-items:center;gap:11px;text-decoration:none;color:var(--ink);font-weight:850;letter-spacing:-.03em}.brand-mark{width:38px;height:38px;border-radius:13px;display:grid;place-items:center;background:linear-gradient(145deg,#1ca891,#0d685d);color:white;font-size:16px;font-weight:900;box-shadow:0 8px 18px rgba(18,136,121,.2)}.nav-links{display:flex;align-items:center;gap:8px}.nav-links a{padding:9px 13px;border-radius:999px;text-decoration:none;color:var(--muted);font-size:14px;font-weight:700}.nav-links a:hover,.nav-links a[aria-current=page]{background:#e7f3ef;color:var(--teal-dark)}.eyebrow{display:inline-flex;align-items:center;gap:8px;color:var(--teal-dark);font-size:11px;font-weight:850;letter-spacing:.16em;text-transform:uppercase}.eyebrow:before{content:"";width:20px;height:2px;background:var(--gold);border-radius:2px}.button{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:12px 17px;border-radius:12px;text-decoration:none;font-weight:800;font-size:14px;transition:transform .18s ease,background .18s ease}.button:hover{transform:translateY(-2px)}.button-primary{background:var(--teal);color:#fff;box-shadow:0 10px 22px rgba(18,136,121,.2)}.button-primary:hover{background:var(--teal-dark);color:#fff}.button-quiet{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);color:#fff}.button-quiet:hover{background:rgba(255,255,255,.18);color:#fff}.site-footer{margin-top:70px;border-top:1px solid var(--line);padding:24px 0 34px;color:var(--muted);font-size:13px}.footer-row{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}.footer-links{display:flex;gap:16px;flex-wrap:wrap}.footer-links a{color:var(--muted);text-decoration:none}.footer-links a:hover{color:var(--teal-dark)}
+/* Home */
+.hero{position:relative;isolation:isolate;overflow:hidden;margin:36px auto 56px;padding:clamp(30px,6vw,70px);border-radius:32px;background:linear-gradient(122deg,#12252d 0%,#17463f 56%,#167f70 100%);color:#fff;box-shadow:var(--shadow)}.hero:after{content:"";position:absolute;z-index:-1;width:390px;height:390px;border:1px solid rgba(255,255,255,.13);border-radius:50%;right:-120px;top:-150px;box-shadow:0 0 0 42px rgba(255,255,255,.035),0 0 0 84px rgba(255,255,255,.025)}.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:42px}.hero .eyebrow{color:#a8e4d8}.hero h1{max-width:680px;margin:15px 0 17px;font-size:clamp(38px,6vw,66px);line-height:1.04;letter-spacing:-.055em}.hero-copy{max-width:610px;color:#d2e1dd;font-size:clamp(16px,1.7vw,19px);margin:0}.hero-actions{display:flex;gap:11px;flex-wrap:wrap;margin-top:27px}.hero-note{margin-top:19px;color:#b6d2ca;font-size:12px}.report-preview{max-width:420px;margin-left:auto;padding:22px;border:1px solid rgba(255,255,255,.18);border-radius:23px;background:rgba(255,255,255,.10);backdrop-filter:blur(12px);box-shadow:0 20px 45px rgba(0,0,0,.14)}.preview-head{display:flex;justify-content:space-between;align-items:center;gap:10px;padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,.16);font-weight:800}.preview-badge{padding:5px 8px;border:1px solid rgba(168,228,216,.35);border-radius:999px;color:#b7ece1;font-size:9px;letter-spacing:.12em;text-transform:uppercase}.preview-row{display:flex;justify-content:space-between;gap:10px;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.12);font-size:12px;color:#c3d7d1}.preview-row strong{color:#fff;text-align:right}.preview-total{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:15px;padding:14px;border-radius:15px;background:#dff5ef;color:#13594f}.preview-total span{font-size:10px;font-weight:850;letter-spacing:.1em;text-transform:uppercase}.preview-total strong{font-size:14px}.section-heading{max-width:650px;margin:0 auto 26px;text-align:center}.section-heading h2{margin:10px 0 8px;font-size:clamp(27px,4vw,40px);line-height:1.15;letter-spacing:-.04em}.section-heading p{margin:0;color:var(--muted)}.feature-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}.feature-card{min-height:205px;padding:23px;border:1px solid var(--line);border-radius:20px;background:rgba(255,255,255,.85);box-shadow:0 8px 25px rgba(22,55,57,.04)}.feature-icon{width:40px;height:40px;display:grid;place-items:center;margin-bottom:17px;border-radius:13px;background:var(--mint);color:var(--teal-dark);font-size:18px;font-weight:900}.feature-card h3{margin:0 0 7px;font-size:17px;letter-spacing:-.02em}.feature-card p{margin:0;color:var(--muted);font-size:14px}.workflow{display:grid;grid-template-columns:.8fr 1.2fr;gap:30px;align-items:center;margin-top:68px;padding:clamp(24px,4.5vw,42px);border:1px solid var(--line);border-radius:25px;background:linear-gradient(120deg,#fff,#f0f8f5)}.workflow h2{margin:8px 0 10px;font-size:clamp(25px,3.2vw,36px);line-height:1.15;letter-spacing:-.04em}.workflow p{margin:0;color:var(--muted)}.workflow-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.workflow-step{display:flex;align-items:flex-start;gap:11px;padding:14px;border-radius:15px;background:#fff;border:1px solid #e4eeeb;color:#42575a;font-size:13px}.step-no{flex:0 0 25px;height:25px;display:grid;place-items:center;border-radius:8px;background:var(--mint);color:var(--teal-dark);font-size:11px;font-weight:900}.data-note{margin-top:52px;padding:24px 27px;border-radius:20px;background:#e8f3ef;display:flex;justify-content:space-between;align-items:center;gap:22px}.data-note h2{margin:0 0 4px;font-size:19px}.data-note p{margin:0;color:var(--muted);font-size:14px}.data-note a{flex:0 0 auto;font-weight:800;text-decoration:none}
+/* Legal pages */
+.legal-hero{margin:35px 0 27px;padding:clamp(25px,5vw,48px);border-radius:26px;background:linear-gradient(125deg,#142c33,#176c61);color:#fff;box-shadow:var(--shadow)}.legal-hero .eyebrow{color:#ace3d7}.legal-hero h1{margin:13px 0 9px;font-size:clamp(34px,5.4vw,54px);line-height:1.05;letter-spacing:-.05em}.legal-hero p{max-width:710px;margin:0;color:#d2e1dd}.legal-meta{display:flex;gap:9px;flex-wrap:wrap;margin-top:20px}.legal-meta span{padding:6px 10px;border:1px solid rgba(255,255,255,.2);border-radius:999px;color:#d3ece6;font-size:11px;font-weight:750}.legal-layout{display:grid;grid-template-columns:220px minmax(0,1fr);gap:22px;align-items:start}.toc{position:sticky;top:96px;padding:20px;border:1px solid var(--line);border-radius:18px;background:#fff}.toc strong{display:block;margin:0 0 10px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}.toc a{display:block;padding:7px 8px;border-radius:9px;color:#496065;text-decoration:none;font-size:12px;font-weight:650}.toc a:hover{background:#eaf5f1;color:var(--teal-dark)}.legal-content{min-width:0;padding:clamp(20px,4vw,38px);border:1px solid var(--line);border-radius:22px;background:#fff;box-shadow:0 12px 35px rgba(22,55,57,.05)}.summary-box{margin-bottom:22px;padding:17px 19px;border-left:4px solid var(--teal);border-radius:13px;background:#eef8f5;color:#40585c}.summary-box strong{color:var(--teal-dark)}.legal-section{display:grid;grid-template-columns:39px minmax(0,1fr);gap:12px;padding:20px 0;border-top:1px solid #edf2f0;scroll-margin-top:96px}.legal-section:first-of-type{border-top:0}.section-number{width:32px;height:32px;display:grid;place-items:center;border-radius:10px;background:#e7f4ef;color:var(--teal-dark);font-size:11px;font-weight:900}.legal-section h2{margin:2px 0 7px;font-size:18px;line-height:1.3;letter-spacing:-.02em}.legal-section p{margin:0 0 10px;color:#5e7076;font-size:14px}.legal-section p:last-child{margin-bottom:0}.legal-section ul{margin:8px 0 0;padding-left:19px;color:#5e7076;font-size:14px}.legal-section li+li{margin-top:6px}.legal-content code{padding:2px 5px;border-radius:5px;background:#eff5f3;color:#315d57;font-size:.92em}.contact-card{margin-top:20px;padding:18px;border:1px solid var(--line);border-radius:15px;background:#f8fbfa}
+@media(max-width:850px){.hero-grid{grid-template-columns:1fr;gap:28px}.report-preview{margin:0;max-width:none}.feature-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.workflow{grid-template-columns:1fr}.legal-layout{grid-template-columns:1fr}.toc{position:static;display:flex;gap:5px;overflow:auto;align-items:center}.toc strong{flex:0 0 auto;margin:0 8px 0 0}.toc a{flex:0 0 auto}.legal-content{padding:23px}}
+@media(max-width:560px){.container{width:min(100% - 28px,1120px)}.nav{min-height:66px}.brand{font-size:14px}.brand-mark{width:34px;height:34px;border-radius:11px}.nav-links{gap:0}.nav-links a{padding:8px 9px;font-size:12px}.hero{margin:19px auto 39px;border-radius:24px}.hero h1{font-size:42px}.feature-grid{grid-template-columns:1fr}.feature-card{min-height:unset}.workflow-list{grid-template-columns:1fr}.data-note{align-items:flex-start;flex-direction:column}.legal-hero{margin-top:20px;border-radius:21px}.legal-layout{gap:12px}.toc{margin:0 -2px;padding:11px}.toc strong{display:none}.legal-content{padding:18px;border-radius:18px}.legal-section{grid-template-columns:30px minmax(0,1fr);gap:8px}.section-number{width:27px;height:27px}.legal-section h2{font-size:16px}.legal-section p,.legal-section ul{font-size:13px}.footer-row{align-items:flex-start;flex-direction:column}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="index.html" aria-label="Aluminum Calculator home"><span class="brand-mark" aria-hidden="true">A</span><span>Aluminum Calculator</span></a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="#features">Features</a>
+      <a href="privacy-policy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="container">
+  <section class="hero">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow">A clearer fabrication workflow</div>
+        <h1>Measure, calculate, and bill with confidence.</h1>
+        <p class="hero-copy">An Android companion for aluminium fabrication work: organize customer jobs, calculate window dimensions and work area, and prepare a readable billing report.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#features">Explore features <span aria-hidden="true">→</span></a>
+          <a class="button button-quiet" href="privacy-policy.html">How your data is handled</a>
+        </div>
+        <p class="hero-note">Thai Fabrication · Customer records · Billing breakdowns · Measurement tools</p>
+      </div>
+      <div class="report-preview" aria-label="Illustration of the billing report">
+        <div class="preview-head"><span>Billing breakdown</span><span class="preview-badge">Report preview</span></div>
+        <div class="preview-row"><span>Total work square feet</span><strong>Window area only</strong></div>
+        <div class="preview-row"><span>Fanlight</span><strong>Count × rate</strong></div>
+        <div class="preview-row"><span>Rate and amount</span><strong>Separate columns</strong></div>
+        <div class="preview-total"><span>Final Bill In Taka</span><strong>Calculated total</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="features" aria-labelledby="features-title">
+    <div class="section-heading">
+      <div class="eyebrow">Tools for the workshop</div>
+      <h2 id="features-title">The details stay together.</h2>
+      <p>Move from measurements to a clear job record and a bill summary in one place.</p>
+    </div>
+    <div class="feature-grid">
+      <article class="feature-card"><div class="feature-icon" aria-hidden="true">⌗</div><h3>Thai Fabrication</h3><p>Enter window measurements and prepare fabrication dimensions, window sizes, quantities, and work-area summaries.</p></article>
+      <article class="feature-card"><div class="feature-icon" aria-hidden="true">৳</div><h3>Billing breakdown</h3><p>Calculate work charges from square feet excluding fanlight area, and fanlight charges from the fanlight count and rate.</p></article>
+      <article class="feature-card"><div class="feature-icon" aria-hidden="true">▤</div><h3>Photo-ready reports</h3><p>Save a report image with separate Description, Total Work Area, Rate, and Amount columns. Fanlight count is shown separately from window work area.</p></article>
+      <article class="feature-card"><div class="feature-icon" aria-hidden="true">♙</div><h3>Customers and work history</h3><p>Keep customer details and saved fabrication jobs organized for later review.</p></article>
+      <article class="feature-card"><div class="feature-icon" aria-hidden="true">⅛</div><h3>Measurement utilities</h3><p>Use unit conversion and base-eight suta tools for common fabrication measurements.</p></article>
+      <article class="feature-card"><div class="feature-icon" aria-hidden="true">↥</div><h3>Optional backup</h3><p>When configured, use the Google account you authorize to back up or restore supported app data.</p></article>
+    </div>
+  </section>
+
+  <section class="workflow" aria-labelledby="workflow-title">
+    <div>
+      <div class="eyebrow">Clear totals</div>
+      <h2 id="workflow-title">Window work and fanlights are counted separately.</h2>
+      <p>The billing report uses ordinary window square feet for the work-area charge. Fanlights use their quantity and fanlight rate, so their area does not inflate the window work-area total.</p>
+    </div>
+    <div class="workflow-list">
+      <div class="workflow-step"><span class="step-no">01</span><span>Enter measurements and customer details.</span></div>
+      <div class="workflow-step"><span class="step-no">02</span><span>Review window sizes, quantities, and work area.</span></div>
+      <div class="workflow-step"><span class="step-no">03</span><span>Add square feet and fanlight rates when needed.</span></div>
+      <div class="workflow-step"><span class="step-no">04</span><span>Save a report image or review the billing record.</span></div>
+    </div>
+  </section>
+
+  <section class="data-note" aria-labelledby="data-title">
+    <div><h2 id="data-title">Your records, your choice.</h2><p>Customer and job information is stored by the app. Google Drive backup is optional and requires your authorization.</p></div>
+    <a href="privacy-policy.html">Read the Privacy Policy <span aria-hidden="true">→</span></a>
+  </section>
+</main>
+<footer class="site-footer"><div class="container footer-row"><span>© 2026 Aluminum Calculator</span><div class="footer-links"><a href="privacy-policy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a><a href="https://github.com/Biplop34/Aluminium-Calculator-Final/issues" target="_blank" rel="noopener noreferrer">Support</a></div></div></footer>
+</body>
+</html>
