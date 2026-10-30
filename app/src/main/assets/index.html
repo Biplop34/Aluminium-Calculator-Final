@@ -12,6 +12,10 @@
         if (isDark) document.documentElement.classList.add("dark");
         else document.documentElement.classList.remove("dark");
 
+        // Clear active unsubmitted calculator so app always opens with clean blank input fields
+        localStorage.removeItem("thai_active_calculator");
+        localStorage.removeItem("thai_pending_restore_calculator");
+
         if (window.AndroidBridge && typeof window.AndroidBridge.getAppData === "function") {
           const natCust = window.AndroidBridge.getAppData("thai_customers_db");
           const localCust = localStorage.getItem("thai_customers_db");

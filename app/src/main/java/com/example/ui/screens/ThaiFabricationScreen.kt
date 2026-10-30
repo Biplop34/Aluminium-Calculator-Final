@@ -42,7 +42,7 @@ fun ThaiFabricationScreen(
     var customerDetails by remember { mutableStateOf(repository.getCustomerDetails()) }
     var sets by remember {
         mutableStateOf(
-            listOf(MeasurementSet(height = "120.0", length1 = "150.0", length2 = "149.5"))
+            listOf(MeasurementSet(height = "", length1 = "", length2 = ""))
         )
     }
     var results by remember { mutableStateOf<List<CalculationResult>>(emptyList()) }

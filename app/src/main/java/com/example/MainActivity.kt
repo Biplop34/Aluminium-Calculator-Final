@@ -532,6 +532,14 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
+        // Clear any residual active calculator state so app starts with blank inputs
+        try {
+            getSharedPreferences("thai_app_storage", Context.MODE_PRIVATE)
+                .edit()
+                .remove("thai_active_calculator")
+                .apply()
+        } catch (_: Exception) {}
+
         setContent {
             AluminiumCalculatorTheme {
                 Surface(

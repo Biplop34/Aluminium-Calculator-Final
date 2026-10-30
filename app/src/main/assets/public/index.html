@@ -11,6 +11,10 @@
         const isDark = t === "dark" || (t === "system" && window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches);
         if (isDark) document.documentElement.classList.add("dark");
         else document.documentElement.classList.remove("dark");
+
+        // Clear active unsubmitted calculator so app always opens with clean blank input fields
+        localStorage.removeItem("thai_active_calculator");
+        localStorage.removeItem("thai_pending_restore_calculator");
       } catch(e) {}
     </script>
 
